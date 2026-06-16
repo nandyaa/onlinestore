@@ -3,11 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-// Route Test Railway
-Route::get('/test', function () {
-    return 'RAILWAY TEST BERHASIL';
-});
-
 // Rute Publik (Home, About, Products)
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name("home.index");
 Route::get('/about', 'App\Http\Controllers\HomeController@about')->name("home.about");
@@ -22,7 +17,6 @@ Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("
 // Rute yang Memerlukan Login (Auth)
 Route::middleware('auth')->group(function () {
     Route::get('/cart/purchase', 'App\Http\Controllers\CartController@purchase')->name("cart.purchase");
-
     // Rute Baru Chapter 28
     Route::get('/my-account/orders', 'App\Http\Controllers\MyAccountController@orders')->name("myaccount.orders");
 });
